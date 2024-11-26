@@ -1,0 +1,186 @@
+
+/* Color Palete*/
+h6{color: 
+    #F271C1,
+    #19F5FF,
+    #00BCF6,
+    #0087BD,}
+
+.carousel_img {
+    max-height: 60vh;
+    object-fit: cover;
+}
+
+#carousel {
+    position: relative;
+}
+#carousel .overlay {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(248, 244, 185, 0);
+    color: rgba(245, 217, 231, 0.89);    
+}
+
+#carousel .carousel-indicators {
+    color: rgb(242, 113, 193);
+}   
+
+#about p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #f8f9fa;
+}
+
+#about {
+    background: linear-gradient(85deg, rgba(242,113,193,1) 1%, rgba(239,227,175,1) 194%, rgba(195,195,195,1) 201%);
+}
+
+#optional p, h2 {
+    color: rgba(1, 194, 201);
+}
+h1 {
+    color: rgba(1, 194, 201); 
+}
+
+#optional img {
+    max-width: 100%;
+}
+
+#footer {
+    background: #f271c1;
+    background: linear-gradient(85deg, rgba(242,113,193,1) 1%, rgba(242,231,180,1) 194%, rgba(2,0,36,1) 201%);
+}
+.center_div {
+	display: flex;
+}
+
+#footer a {
+    color: aliceblue;
+    text-decoration: none;
+}
+.shopping_cart{
+    width: 50px;
+    height: 38px;
+    border: 3px solid;
+    border-color: #f271c1;
+    border-radius: 11px;
+    padding: 1px;
+}
+.shopping_cart:hover{
+    background-color: rgba(222, 222, 222, 0.749);
+}
+
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #fbafe3;
+	background:linear-gradient(to bottom, #f271c1 5%, #ef027d 100%);
+	background-color:#f271c1;
+	border-radius:16px;
+	border:1px solid #ee1eb5;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff !important;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #c70067;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #ef027d 5%, #f271c1 100%);
+	background-color:#ef027d;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.myButton-blue {
+	box-shadow:inset 0px 1px 0px 0px #19F5FF;
+	background:linear-gradient(to bottom, #00BCF6 5%, #0087BD 100%);
+	background-color:#00BCF6;
+	border-radius:16px;
+	border:1px solid  #0087BD;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff !important;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px  #0087BD;
+}
+.myButton-blue:hover {
+	background:linear-gradient(to bottom, #0087BD 5%, #00BCF6 100%);
+	background-color: #0087BD;
+	transition: .3s;
+}
+.myButton-blue:active {
+	position:relative;
+	top:1px;
+}
+.card_size{
+    min-height: 420px !important;
+	max-width: 220px !important;
+}
+
+.newButton {
+	box-shadow:inset 0px 1px 0px 0px #19F5FF;
+	background:linear-gradient(to bottom, #00BCF6 5%, #0087BD 100%);
+	background-color:#00BCF6;
+	border-radius:6px;
+	border:1px solid  #0087BD;
+	display:inline-block;
+	color:#ffffff !important;
+	font-family:Arial;
+	font-size:10px;
+	font-weight:bold;
+	padding:4px 14px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px  #0087BD;
+
+}
+.sold_Button {
+	box-shadow:inset 0px 1px 0px 0px #fbafe3;
+	background:linear-gradient(to bottom, #f271c1 5%, #ef027d 100%);
+	background-color:#f271c1;
+	border-radius:6px;
+	border:1px solid #ee1eb5;
+	display: inline-block;
+	cursor:pointer;
+	color:#ffffff !important;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:4px 14px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #c70067;
+}
+.sold_Button:hover {
+	background:linear-gradient(to bottom, #ef027d 5%, #f271c1 100%);
+	background-color: #ee1eb5;
+	transition: .3s;
+        
+}
+.sold_Button:active {
+	position:relative;
+	top:1px;
+	transition: .5s;
+}
+.detail{
+	max-width: 300px;
+}
+.detail:hover {
+	position:relative;
+	bottom:2px;
+	max-width: 300px;
+}
+
+.card-img-top {
+    height: 200px;
+    width: 100%;
+	
+}

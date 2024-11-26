@@ -1,0 +1,49 @@
+{% extends 'layaut.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container text-center my-5">
+    <h2>Nos alegra que te guste este producto!:</h2>
+    <h3>Déjanos tu correo y te contactaremos!</h3>
+</div>
+
+<div class="row">
+  <div class="col-2"></div>
+    <div class="col md-4" style="min-width: 440px;">
+      {% if alert %}
+  <div class="alert alert-primary" role="alert">
+{{ alert }}
+</div>
+{% endif %}
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="{{ product.name }}">
+              </div>
+              <div class="col-md-8 ">
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <p class="card-text">{{ product.description }}</p>
+                    {% if product.promo %}
+                        <p class="card-text"><small class="text-muted"> $ {{ product.formatted_promo }}</small></p>
+                    {% else %}
+                        <h3 class="card-text"><small class="text-muted">$ {{ product.formatted_price }}</small></h3>
+                    {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="col md-4">
+      {% if form %}
+        <form enctype="multipart/form-data" action="{% url 'another_equal' product.id %}" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input class="myButton" type="submit" value="Enviar" />
+        </form>
+      {% endif %}
+    </div>                 
+        <div class="col-2"></div>
+    </div>
+    {% endblock %}

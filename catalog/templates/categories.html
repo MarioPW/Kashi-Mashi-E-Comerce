@@ -1,0 +1,51 @@
+{% extends 'layaut.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2"><!--Maybe Announcements--></div>
+    <div class="col-8">
+      <div class="row">
+        <h2 class="text-center"> {{ category }} </h2>
+{% for product in cat_products %}
+
+<div class="card shadow detail card_size ">
+  <a href="{% url 'detail' product.id %}">
+  <img src="{{ product.image.url }}" class="card-img-top h-75 w-100" alt="{{ product.name }}">
+  <div class="card-img-overlay">
+    {% if product.new %}
+    <div class="newButton ms-3 mt-2 user-select-none">NUEVO!</div>
+    {% endif %}           
+    <!--Shopping_cart Button-->          
+    <!--<a href="#"><img src="{% static 'shopping_cart.png' %}" class='float-end shopping_cart mt-2 me-2'></a>veritatis-->             
+    {% if product.sold %}
+    <a href={% url 'another_equal' product.id %} class="sold_Button ms-3 mt-5">VENDIDO...¡Encarganos otro igual!</a>
+    
+    {% endif %}
+
+  </div>
+ <div class="card-body">
+  <h5 class="card-title">{{ product.name }}</h5>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">${{ product.formatted_price }}</li>
+    </ul>
+    <div class="card container border-0">
+      </a>
+      <a href="{% url 'orders' product.id %}"
+      class="myButton float-end my-2">¡Lo Compro!</a>
+    </div>
+
+  </div>
+</div>
+{% endfor %}
+
+</div>
+</div>
+
+<div class="col-2"><!--Maybe Announcements--></div>
+</div>
+</div>
+
+{% endblock%}

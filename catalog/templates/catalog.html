@@ -1,0 +1,98 @@
+{% extends 'layaut.html' %} {% load static %} {% block content %}
+
+<div class="container-fluid">
+  <h1>Catálogo</h1>
+  <div class="row">
+    <div class="col-2">
+      <!--Maybe Announcements-->
+    </div>
+
+    <div class="col-8">
+      {% for category in categories %} {% if category.show_it %}
+
+      <div class="text-center">
+        <h2>{{ category }}</h2>
+      </div>
+
+      <div class="row">
+        {% for product in products %} {% if product.category == category %}
+
+        <div class="col md-3 my-3">
+          <a href="{% url 'detail' product.id %}" class="text-decoration-none">
+            <div class="card shadow detail card_size">
+              <img
+                src="{{ product.image.url }}"
+                class="card-img-top"
+                alt="{{ product.name }}"
+              />
+              <div class="card-img-overlay">
+                {% if product.new %}
+                <div class="newButton ms-3 mt-2 user-select-none">NUEVO!</div>
+                {% endif %}
+
+                <!--Shopping_cart Button-->
+                <!--<a href="#"><img src="{% static 'shopping_cart.png' %}" class='float-end shopping_cart mt-2 me-2'></a>-->
+                {% if product.sold %}
+                <a
+                  href="{% url 'another_equal' product.id %}"
+                  class="btn sold_Button ms-5"
+                  >VENDIDO...</a
+                >
+                {% endif %}
+              </div>
+              <div class="card-body">
+                <p class="card-title">{{ product.name }}</p>
+                {% if product.promo != 0 %}
+                <p class="card-text mb-1">
+                  <span class="text-muted">Precio Normal:</span><br />
+                  <span class="text-decoration-line-through"
+                    >${{ product.formatted_price }}</span
+                  >
+                </p>
+                <p class="card-text mb-1">
+                  <span class="text-muted"
+                    >Promo! ${{ product.formatted_promo }}</span
+                  >
+                </p>
+                {% else %}
+                <p class="card-text text-muted">
+                  ${{ product.formatted_price }}
+                </p>
+                {% endif %}
+              </div>
+
+              <div class="card container border-0">
+                {% if product.sold %}
+
+                <a
+                  href="{% url 'another_equal' product.id %}"
+                  class="btn myButton my-1"
+                  >¡Encarganos otro igual!</a
+                >
+
+                {% else %}
+
+                <a
+                  href="{% url 'orders' product.id %}"
+                  class="myButton my-1"
+                  method="POST"
+                  >¡Lo Compro!</a
+                >
+
+                {% endif %}
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endif %} {% endfor %}
+      </div>
+      {% endif %} {% endfor %} {% include './pagination.html' %}
+    </div>
+
+    <div class="col-2">
+      <!--Maybe Announcements-->
+    </div>
+  </div>
+</div>
+
+{% endblock%}

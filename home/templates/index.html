@@ -1,0 +1,132 @@
+{% extends 'layaut.html' %} {% load static %} {% block content %}
+
+<!-- Carousel -->
+
+{% include 'carousel.html' %}
+
+<!-- About us -->
+<section id="about">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col text-center">
+        <h1>K-M Tejidos hechos con amor</h1>
+        <p>
+          Somos un emprendimiento Colombo-Ecuatoriano. Todos nuestros productos
+          son hechos por encargo, si tienes algún proyecto en mente o quieres
+          hacer algún detalle espcial, envíanos tus datos y te haremos la mejor
+          cotización.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Optional -->
+<section id="optional">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col pt-5 pb-5">
+        <img src="{% static 'logo.jpg'%}" alt="kashi-mashi logo" />
+      </div>
+      <div class="col-12 col-lg-8 pt-2 pb-5 align-self-center">
+        <h2>Proyectos por encargo Kashi-Mashi</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+          quidem praesentium repellendus repellat eveniet aspernatur possimus.
+          Eaque deleniti inventore cupiditate earum consequatur nihil ut cum
+          sapiente, eum similique ratione dolorum explicabo illo natus, dicta
+          harum vero soluta veritatis cumque! Autem optio in dolorem natus
+          provident quas? Assumenda ducimus aspernatur impedit.
+        </p>
+        <a class="myButton-blue" href="{% url 'message' %}"
+          >Proyectos por encargo</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="new_products">
+  <div class="container-fluid">
+    {% if products %}
+    <div class="text-center"><h2>¡¡¡ Novedades !!!</h2></div>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div class="row">
+          {% for product in products %} {% if product.new %}
+          <div class="col md-3 my-3 flex">
+            <a
+              href="{% url 'detail' product.id %}"
+              class="text-decoration-none"
+            >
+              <div class="card shadow detail">
+                <img
+                  src="{{ product.image.url }}"
+                  class="card-img-top"
+                  alt="{{ product.name }}"
+                />
+                <div class="card-img-overlay">
+                  {% if product.new == True %}
+                  <div class="newButton ms-3 mt-2 user-select-none">NUEVO!</div>
+                  {% endif %}
+                  <!--Shopping_cart Button-->
+                  <!--<a href="#"><img src="{% static 'shopping_cart.png' %}" class='float-end shopping_cart mt-2 me-2'></a>-->
+                  {% if product.sold == True %}
+                  <a
+                    href="{% url 'another_equal' product.id %}"
+                    class="btn sold_Button ms-5"
+                    >VENDIDO...</a
+                  >
+                  {% endif %}
+                </div>
+                <div class="card-body">
+                  <p class="card-title text-decoration-none">
+                    {{ product.name }}
+                  </p>
+                  {% if product.promo != 0 %}
+                  <p class="card-text mb-1">
+                    <span class="text-muted">Precio Normal:</span><br />
+                    <span class="text-decoration-line-through"
+                      >${{ product.formatted_price }}</span
+                    >
+                  </p>
+                  <p class="text-muted text-decoration-none">
+                    Promo! ${{ product.formatted_promo }}
+                  </p>
+                  {% else %}
+                  <p class="card-text text-muted">
+                    ${{ product.formatted_price }}
+                  </p>
+                  {% endif %}
+                </div>
+                <div class="card container border-0">
+                  {% if product.sold %}
+                  <a
+                    href="{% url 'another_equal' product.id %}"
+                    class="btn myButton my-1"
+                    >¡Encarganos otro igual!</a
+                  >
+                  {% else %}
+                  <a
+                    href="{% url 'orders' product.id %}"
+                    class="myButton my-1"
+                    method="POST"
+                    >¡Lo Compro!</a
+                  >
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          </div>
+          {% endif %} {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-2"></div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

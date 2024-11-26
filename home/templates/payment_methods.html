@@ -1,0 +1,15 @@
+{% extends 'layaut.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% for payment_method in payment_methods %}
+    
+    <div class='center_div my-4'>
+        <div class="card-body rounded shadow p-3">
+        <p class="card-title">{{ payment_method.method }}</p>
+        </div>
+    </div>
+    
+    {% endfor %}
+{% endblock %}

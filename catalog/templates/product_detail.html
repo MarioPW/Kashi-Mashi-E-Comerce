@@ -1,0 +1,65 @@
+{% extends 'layaut.html' %} {% load static %} {% block content %}
+
+<div class="row">
+  <div class="col-8 mx-auto">
+    <div class="card my-4 rounded shadow p-5">
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            src="{{ product.image.url }}"
+            class="img-fluid rounded-start"
+            alt="{{ product.name }}"
+          />
+        </div>
+
+        <div class="col-md-6">
+          <div class="container">
+            <h4 class="card-title">{{ product.name }}</h4>
+
+            <p>{{ product.description }}</p>
+
+            {% if product.promo != 0 %}
+
+            <div>
+              <h4>
+                Precio Normal: <br />
+                <strong class="text-decoration-line-through">
+                  ${{ product.formatted_price }}</strong
+                >
+              </h4>
+            </div>
+            <h3>Promo! ${{ product.formatted_promo }}</h3>
+
+            {% else %}
+
+            <h4>${{ product.formatted_price }}</h4>
+            {% endif %}
+
+            <h4>Publicado: {{ product.updated_at }}</h4>
+
+            {% if product.sold %}
+          
+            
+              <a
+                href="{% url 'another_equal' product.id %}"
+                class="sold_Button ms-3 mt-5 overlay"
+                >VENDIDO...¡Click para encargar otro igual!</a
+              >
+
+              {% else %}
+              <a
+                href="{% url 'orders' product.id %}"
+                class="myButton btn-sm float-end"
+                >¡Lo Compro!</a
+              >
+      
+            
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

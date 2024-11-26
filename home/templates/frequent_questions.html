@@ -1,0 +1,15 @@
+{% extends 'layaut.html' %}
+{% load static %}
+
+{% block content %}
+    {% for question in questions %}
+    
+    <div class='center_div'>
+        <div class="card-body rounded shadow p-3 my-3">
+        <p class="card-title">{{question.question}}</p>
+        <p class="card-text">{{question.answer}}</p>
+        </div>
+    </div>
+    
+    {% endfor %}
+{% endblock %}

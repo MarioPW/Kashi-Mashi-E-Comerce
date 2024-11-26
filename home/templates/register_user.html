@@ -1,0 +1,28 @@
+{% extends 'layaut.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2 class="text-center">¡Regístrate y conoce nuestras ofertas!</h2>
+  {% if alert %}
+    <div class="alert alert-primary" role="alert">
+      {{ alert }}
+    </div>
+  {% endif %}
+  <div class='row'>
+  <div class='col md-6'>
+
+    <form enctype="multipart/form-data" action={% url 'register_user' %} method="POST">
+      {% csrf_token %}     
+        <div class='container'>
+        
+        {% crispy form %}
+        
+          <button class="myButton" type="submit" value="Enviar"> Enviar </button>
+          
+        </div>
+      
+    </form>
+   </div> 
+  </div>     
+{% endblock %}
