@@ -48,13 +48,3 @@ class Another_Equal(models.Model):
     sended_at = DateTimeField(auto_now_add=True)
     def __str__(self) -> str:
         return f'From: {self.customer_email} ..... {self.sended_at}'
-
-@receiver(post_delete, sender=(Carousel_Stuff))
-def delete_image_Carousel(sender, instance, **kwargs):
-    if instance.image:
-        instance.image.delete(save=False)
-
-@receiver(post_delete, sender=(Message))
-def delete_image_Message(sender, instance, **kwargs):
-    if instance.image:
-        instance.image.delete(save=False)

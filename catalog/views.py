@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 def catalog(request):
     products = Product.objects.all()
     categories = Category.objects.all()
-    paginator = Paginator(products, 5)
+    paginator = Paginator(products, 10)
     page = request.GET.get('page')
     page_products = paginator.get_page(page)
     return render(request, 'catalog.html', {'products': page_products,

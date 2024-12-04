@@ -26,7 +26,7 @@ h6{color:
 
 #carousel .carousel-indicators {
     color: rgb(242, 113, 193);
-}   
+}
 
 #about p {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -51,9 +51,6 @@ h1 {
 #footer {
     background: #f271c1;
     background: linear-gradient(85deg, rgba(242,113,193,1) 1%, rgba(242,231,180,1) 194%, rgba(2,0,36,1) 201%);
-}
-.center_div {
-	display: flex;
 }
 
 #footer a {
@@ -122,10 +119,6 @@ h1 {
 	position:relative;
 	top:1px;
 }
-.card_size{
-    min-height: 420px !important;
-	max-width: 220px !important;
-}
 
 .newButton {
 	box-shadow:inset 0px 1px 0px 0px #19F5FF;
@@ -141,7 +134,6 @@ h1 {
 	padding:4px 14px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px  #0087BD;
-
 }
 .sold_Button {
 	box-shadow:inset 0px 1px 0px 0px #fbafe3;
@@ -170,17 +162,7 @@ h1 {
 	top:1px;
 	transition: .5s;
 }
-.detail{
-	max-width: 300px;
-}
-.detail:hover {
-	position:relative;
-	bottom:2px;
-	max-width: 300px;
-}
-
 .card-img-top {
     height: 200px;
     width: 100%;
-	
 }
