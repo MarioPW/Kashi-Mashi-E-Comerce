@@ -2,40 +2,34 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      {% if alert %}
+        <div class="alert alert-primary" role="alert">{{ alert }}</div>
+      {% endif %} <form enctype="multipart/form-data" action="{% url 'message' %}" method="POST">
+        {% csrf_token %}
+        <div class="container py-5">
+          <h2 class="text-center">Cotización</h2>
 
-<div class="row">
-  <div class="col-2"></div>
-  <div class="col-8">
-    {% if alert %}
-    <div class="alert alert-primary" role="alert">{{ alert }}</div>
-    {% endif %} <form enctype="multipart/form-data" action={% url 'message' %}
-    method="POST"> {% csrf_token %}
-    <div class="container py-5">
-      
-        
-      <h2 class="text-center">Cotización</h2>
-        
-      
-      <div class="row">
-        <p class="text-center">
-          Algún
-          proyecto en mente? Dinos los detalles para enviarte la
-          mejor cotización!
-        </p>
-        <div class="row">
-          <div class="col">
-            <div class="mb-3">{% crispy form %}</div>
-            <div class="form-row">
-              <div class="col mb-5">
-                <button class="myButton" type="submit" value="Enviar"> Enviar </button>
+          <div class="row">
+            <p class="text-center">Algún proyecto en mente? Dinos los detalles para enviarte la mejor cotización!</p>
+            <div class="row">
+              <div class="col">
+                <div class="mb-3">
+                  {% crispy form %}
+                </div>
+                <div class="form-row">
+                  <div class="col mb-5">
+                    <button class="myButton" type="submit" value="Enviar">Enviar</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
-  </form>
+    <div class="col-2"></div>
   </div>
-  <div class="col-2"></div>
-</div>
 {% endblock %}
