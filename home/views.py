@@ -7,6 +7,7 @@ from catalog.models import Product
 
 def home(request):
     carousel_stuff = Carousel_Stuff.objects.all()
+    print(carousel_stuff[0].image)
     return render(request, 'index.html', {'car_stuff': carousel_stuff})
 
 def message(request):
@@ -63,6 +64,7 @@ def register_user(request):
     form = Register_Form()
     if request.method == 'POST':
         new_user = Register_Form(request.POST)
+        print(request.POST)
         if new_user.is_valid():
             new_user.save()
             username = new_user.cleaned_data['username']
@@ -74,6 +76,5 @@ def register_user(request):
         else:
             message = f'Opps! Parece que algo salió mal...'
             return render(request,'register_user.html', {'form':form, 'alert': message})
-
     else:       
         return render(request, 'register_user.html', {'form':form})        

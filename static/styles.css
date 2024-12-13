@@ -7,7 +7,7 @@ h6{color:
     #0087BD,}
 
 .carousel_img {
-    max-height: 60vh;
+    height: 60vh;
     object-fit: cover;
 }
 
@@ -37,11 +37,12 @@ h6{color:
     background: linear-gradient(85deg, rgba(242,113,193,1) 1%, rgba(239,227,175,1) 194%, rgba(195,195,195,1) 201%);
 }
 
-#optional p, h2 {
+#optional p {
     color: rgba(1, 194, 201);
 }
-h1 {
-    color: rgba(1, 194, 201); 
+h1, h2{
+    color: rgba(1, 194, 201);
+	margin-bottom : 20px important!; 
 }
 
 #optional img {
@@ -120,14 +121,13 @@ h1 {
 	top:1px;
 }
 
-.newButton {
+.new_button {
 	box-shadow:inset 0px 1px 0px 0px #19F5FF;
 	background:linear-gradient(to bottom, #00BCF6 5%, #0087BD 100%);
 	background-color:#00BCF6;
 	border-radius:6px;
 	border:1px solid  #0087BD;
 	display:inline-block;
-	color:#ffffff !important;
 	font-family:Arial;
 	font-size:10px;
 	font-weight:bold;
@@ -135,34 +135,24 @@ h1 {
 	text-decoration:none;
 	text-shadow:0px 1px 0px  #0087BD;
 }
-.sold_Button {
+.sold_button {
 	box-shadow:inset 0px 1px 0px 0px #fbafe3;
 	background:linear-gradient(to bottom, #f271c1 5%, #ef027d 100%);
 	background-color:#f271c1;
 	border-radius:6px;
 	border:1px solid #ee1eb5;
 	display: inline-block;
-	cursor:pointer;
-	color:#ffffff !important;
+	color: #ffffff !important;
+	text-decoration: none;
 	font-family:Arial;
-	font-size:12px;
+	font-size:10px;
 	font-weight:bold;
 	padding:4px 14px;
-	text-decoration:none;
 	text-shadow:0px 1px 0px #c70067;
 }
-.sold_Button:hover {
-	background:linear-gradient(to bottom, #ef027d 5%, #f271c1 100%);
-	background-color: #ee1eb5;
-	transition: .3s;
-        
-}
-.sold_Button:active {
-	position:relative;
-	top:1px;
-	transition: .5s;
-}
-.card-img-top {
-    height: 200px;
-    width: 100%;
-}
+
+.custom-ratio {
+	aspect-ratio: 3 / 2; /* Proporción personalizada, ejemplo 3:2 */
+	position: relative;
+	overflow: hidden;
+  }

@@ -17,13 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from home.views import home
+from authentication.views import register_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('home/', include('home.urls'), name='home'),
     path('catalog/', include('catalog.urls'), name='catalog'),
-
+    path('authentication/', include('authentication.urls'), name='authentication')
 ]
 
 if settings.DEBUG:
